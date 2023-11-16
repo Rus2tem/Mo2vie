@@ -22,7 +22,11 @@
 
 const numberOfFilms = prompt('Сколько фильмов уже посмотрели?', '');
 const lastWatchingMovie = prompt('Один из последних просмотренных фильмов?', '');
-const lastWatchingMovieMark = +prompt('Один из последних просмотренных фильмов?', 'Только цифры от 0 до 10');
+const lastWatchingMovieMark = +prompt('На сколько оцените его?', 'Только цифры от 0 до 10');
+const lastWatchingMovie1 = prompt('Один из последних просмотренных фильмов?', '');
+const lastWatchingMovieMark1 = +prompt('На сколько оцените его?', 'Только цифры от 0 до 10');
+const wharYouMostLikeActor = prompt('Какой ваш самый любимый актер', '');
+const wharYouMostLikeActorMark = prompt('По 10 бальной шкале как вы его оцените?');
 const personalOfMovieDB = {
     count: numberOfFilms,
     movies: {},
@@ -31,4 +35,7 @@ const personalOfMovieDB = {
     privat: false,
 };
 personalOfMovieDB.movies[lastWatchingMovie] = lastWatchingMovieMark;
+personalOfMovieDB.movies[lastWatchingMovie1] = lastWatchingMovieMark1;
+personalOfMovieDB.actors[wharYouMostLikeActor] = wharYouMostLikeActorMark;
 console.log(personalOfMovieDB);
+console.log(personalOfMovieDB.movies);
