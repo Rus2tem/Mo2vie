@@ -20,22 +20,21 @@
 Проверить, чтобы все работало без ошибок в консоли
 */
 
-const numberOfFilms = prompt('Сколько фильмов уже посмотрели?', '');
-const lastWatchingMovie = prompt('Один из последних просмотренных фильмов?', '');
-const lastWatchingMovieMark = +prompt('На сколько оцените его?', 'Только цифры от 0 до 10');
-const lastWatchingMovie1 = prompt('Один из последних просмотренных фильмов?', '');
-const lastWatchingMovieMark1 = +prompt('На сколько оцените его?', 'Только цифры от 0 до 10');
-const wharYouMostLikeActor = prompt('Какой ваш самый любимый актер', '');
-const wharYouMostLikeActorMark = prompt('По 10 бальной шкале как вы его оцените?');
+const numberOfFilms = +prompt('Сколько фильмов уже посмотрели?', '');
+const whatLastFilmYouWatch = prompt('Один из последних фильмов?', '');
+const whatLastFilmYouWatchMark = +prompt('На сколько оцените его?', '');
+const whatLastFilmYouWatch2 = prompt('Еще один из последних фильмов?', '');
+const whatLastFilmYouWatchMark2 = +prompt('На сколько оцените его?', '');
 const personalOfMovieDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
-    privat: false,
+    private: false,
 };
-personalOfMovieDB.movies[lastWatchingMovie] = lastWatchingMovieMark;
-personalOfMovieDB.movies[lastWatchingMovie1] = lastWatchingMovieMark1;
-personalOfMovieDB.actors[wharYouMostLikeActor] = wharYouMostLikeActorMark;
+
+
+personalOfMovieDB.movies[whatLastFilmYouWatch] = whatLastFilmYouWatchMark;
+personalOfMovieDB.movies[whatLastFilmYouWatch2] = whatLastFilmYouWatchMark2;
+
 console.log(personalOfMovieDB);
-console.log(personalOfMovieDB.movies);
