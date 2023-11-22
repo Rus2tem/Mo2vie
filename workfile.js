@@ -1,40 +1,33 @@
 "use strict";
 
-/* 
-1. создать переменную numberOfFilms и в нее поместить ответ ползователя на вопрос: 'Сколько фильмов уже посмотрели?'  
-2. Создать объект personalOfMovieDB и в него поместить также свойства:
-  - count - сюда передается ответ на первый вопрос
-  - movies - в это свойство поместить пустой объект
-  - actors - тоже поместить пустой объект
-  - genres - сюда поместить пустой массив
-  - privat - в это свойство поместить логическое значение false
-
-3. Задайте пользователю по 2 вопроса: 
-  - 'Один из последних просмотренных фильмов?'
-  - 'На сколько оцените его?'
-Ответы стоит поместить в отдельные переменные 
-Записть ответы и объект movies  в формате:
-  movies: {
-      'Logan': '8.1';
-  }
-Проверить, чтобы все работало без ошибок в консоли
-*/
-
-const numberOfFilms = +prompt('Сколько фильмов уже посмотрели?', '');
-const whatLastFilmYouWatch = prompt('Один из последних фильмов?', '');
-const whatLastFilmYouWatchMark = +prompt('На сколько оцените его?', '');
-const whatLastFilmYouWatch2 = prompt('Еще один из последних фильмов?', '');
-const whatLastFilmYouWatchMark2 = +prompt('На сколько оцените его?', '');
-const personalOfMovieDB = {
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели', '');
+const personalMovieDB = {
     count: numberOfFilms,
     movies: {},
     actors: {},
     genres: [],
-    private: false,
+    privat: false
 };
 
+if (personalMovieDB.count < 10) {
+    alert('Просмотренно мало фильмов');
+} else if (personalMovieDB.count >= 10 && personalMovieDB.count < 30) {
+    alert('Вы просмотрели много фильмов');
+} else if (personalMovieDB.count >= 30) {
+    alert('Вы киноман');
+} else {
+    alert('Произошла ошибка');
+}
 
-personalOfMovieDB.movies[whatLastFilmYouWatch] = whatLastFilmYouWatchMark;
-personalOfMovieDB.movies[whatLastFilmYouWatch2] = whatLastFilmYouWatchMark2;
-
-console.log(personalOfMovieDB);
+for (let i = 0; i < 3; i++) {
+    const n = prompt('Один из последних просмотренных фильмов?', ''),
+        m = prompt('Насколько оцените его?(по 10 балльной шкале)', '');
+    if (n != '' && m != '' && n != null && m != null && n.length < 50) {
+        personalMovieDB.movies[n] = m;
+        console.log('true');
+    } else {
+        alert('Ошибка ввода, попробуйте снова');
+        i--;
+    }
+}
+console.log(personalMovieDB);
